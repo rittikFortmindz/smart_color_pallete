@@ -1,39 +1,97 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# smart_color_palette
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+A flexible and dynamic color palette utility for Flutter applications.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+`smart_color_palette` helps developers generate consistent, accessible color themes across UI components such as text, icons, buttons, and borders. It automatically creates smooth transitions between base and target colors by generating 10 interpolated shades, ensuring clean design and excellent contrast for both light and dark themes.
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+---
 
-## Features
+## ✨ Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- 🎨 Auto-generated 10-step color gradients between any two colors  
+- 🧩 Define custom `ColorPair`s for:  
+  - `primary`, `base`, `text`, `icon`, `border`, and `button`  
+- 🌓 Works well with light and dark mode theming  
+- 🔧 Easy integration into Flutter design systems  
 
-## Getting started
+---
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## 📦 Installation
 
-## Usage
+Add this to your `pubspec.yaml`:
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  smart_color_palette: ^1.0.0
 ```
 
-## Additional information
+Then run:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```bash
+flutter pub get
+```
+
+---
+
+## 🚀 Usage
+
+### 1. Import the package
+
+```dart
+import 'package:smart_color_palette/smart_color_palette.dart';
+```
+
+### 2. Create a color palette (e.g. in `colors.dart`)
+
+```dart
+final palette = ColorPalette(
+  primary: ColorPair(base: Colors.blue, target: Colors.deepPurple),
+  base: ColorPair(base: Colors.white, target: Colors.grey[200]!),
+  text: ColorPair(base: Colors.black, target: Colors.white),
+  icon: ColorPair(base: Colors.grey[800]!, target: Colors.white),
+  border: ColorPair(base: Colors.grey, target: Colors.black),
+);
+```
+
+### 3. Use color shades in your UI
+
+```dart
+Container(
+  padding: EdgeInsets.all(16),
+  color: palette.baseColorShade2,
+  child: Text(
+    'Hello Palette!',
+    style: TextStyle(color: palette.textColorShade9),
+  ),
+);
+```
+
+---
+
+## 🧪 Available Shades
+
+Each `ColorPair` produces 10 interpolated shades. You can access them like:
+
+```dart
+palette.primaryColorShade1;  // Lightest shade
+palette.primaryColorShade10; // Darkest shade
+```
+
+### Shade Accessors
+
+- `primaryColorShade1` → `primaryColorShade10`  
+- `baseColorShade1` → `baseColorShade10`  
+- `textColorShade1` → `textColorShade10`  
+- `iconColorShade1` → `iconColorShade10`  
+- `borderColorShade1` → `borderColorShade10`  
+- `buttonColorShades1` → `buttonColorShades10`  
+
+---
+
+## 💡 Contributions
+
+Contributions, issues, and feature requests are welcome!  
+Feel free to open an issue or submit a pull request.
+
+---
+
