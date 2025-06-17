@@ -1,7 +1,7 @@
 name: smart_color_palette
 description: "SmartColorPalette is a dynamic and flexible color utility designed to streamline theming across your application. It intelligently generates and manages color shades for multiple UI elements, including primary and base colors, as well as optional text, icon, and border themes. With built-in shade generation and responsive contrast handling, it ensures consistent visual aesthetics and accessibility across light and dark modes."
 version: 0.0.1
-homepage: 
+homepage: https://github.com/rittikFortmindz/smart_color_pallete
 
 environment:
   sdk: ^3.7.2
